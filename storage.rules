@@ -1,0 +1,13 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /media/{allPaths=**} {
+      // Anyone can view uploaded public media
+      allow read: if true;
+      // Allow image uploads under 5MB for the store
+      allow write: if request.resource.size < 5 * 1024 * 1024 &&
+        request.resource.contentType.matches('image/.*');
+      allow delete: if true;
+    }
+  }
+}

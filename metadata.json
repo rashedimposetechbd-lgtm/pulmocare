@@ -1,0 +1,6 @@
+{
+  "name": "Pulmo Care - Respiratory & Sleep Care E-Commerce",
+  "description": "Pulmo Care (Respira) — শ্বাস নিতে স্বস্তি, যত্ন হোক সহজে। জেনুইন ResHope CPAP, BiPAP, GETWELL কম্প্রেসার নেবুলাইজার, পালস অক্সিমিটার ও বিপি মনিটরের বিশ্বস্ত মেডিকেল ইকুইপমেন্ট স্টোর।",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

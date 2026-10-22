@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Pulmo Care Admin CMS</title>
+  <link rel="icon" type="image/jpeg" href="/assets/pulmo_logo.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body class="admin-body">
+  <div id="admin-app">
+    <!-- Dynamic Admin Application Container (Managed by adminMain.js) -->
+    <div class="admin-loading-screen" id="admin-boot-loader">
+      <div class="spinner"></div>
+      <p>Loading Pulmo Care Admin CMS...</p>
+    </div>
+  </div>
+
+  <!-- Global Toast Container -->
+  <div class="admin-toast-container" id="admin-toast-container"></div>
+
+  <!-- Global Modal Root -->
+  <div id="admin-modal-root"></div>
+
+  <script type="module" src="/src/admin/adminMain.js"></script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+{
+  "entities": {
+    "SiteSettings": {
+      "title": "SiteSettings",
+      "description": "Global website configuration, contact information, branding, and SEO metadata",
+      "type": "object",
+      "properties": {
+        "brandName": { "type": "string", "maxLength": 100 },
+        "tagline": { "type": "string", "maxLength": 200 },
+        "taglineBn": { "type": "string", "maxLength": 200 },
+        "logoUrl": { "type": "string", "maxLength": 500 },
+        "faviconUrl": { "type": "string", "maxLength": 500 },
+        "phone": { "type": "string", "maxLength": 50 },
+        "whatsappNumber": { "type": "string", "maxLength": 50 },
+        "email": { "type": "string", "maxLength": 100 },
+        "address": { "type": "string", "maxLength": 300 },
+        "facebookUrl": { "type": "string", "maxLength": 300 },
+        "topBarText": { "type": "string", "maxLength": 300 },
+        "currencySymbol": { "type": "string", "maxLength": 10 },
+        "deliverySylhet": { "type": "number" },
+        "deliveryOutside": { "type": "number" },
+        "seoTitle": { "type": "string", "maxLength": 200 },
+        "seoDescription": { "type": "string", "maxLength": 500 },
+        "seoKeywords": { "type": "string", "maxLength": 500 },
+        "themeColor": { "type": "string", "maxLength": 20 }
+      },
+      "required": ["brandName", "phone", "whatsappNumber"]
+    },
+    "PageSection": {
+      "title": "PageSection",
+      "description": "Editable homepage section data and visibility toggle",
+      "type": "object",
+      "properties": {
+        "visible": { "type": "boolean" },
+        "order": { "type": "number" },
+        "title": { "type": "string", "maxLength": 300 },
+        "subtitle": { "type": "string", "maxLength": 300 },
+        "description": { "type": "string", "maxLength": 2000 },
+        "imageUrl": { "type": "string", "maxLength": 500 },
+        "buttonText": { "type": "string", "maxLength": 100 },
+        "buttonLink": { "type": "string", "maxLength": 300 },
+        "items": { "type": "array" }
+      },
+      "required": ["visible", "order"]
+    },
+    "Category": {
+      "title": "Category",
+      "description": "Product category classification",
+      "type": "object",
+      "properties": {
+        "nameEn": { "type": "string", "maxLength": 100 },
+        "nameBn": { "type": "string", "maxLength": 100 },
+        "slug": { "type": "string", "maxLength": 100 },
+        "order": { "type": "number" },
+        "visible": { "type": "boolean" }
+      },
+      "required": ["nameEn", "nameBn", "slug", "visible"]
+    },
+    "Product": {
+      "title": "Product",
+      "description": "Medical respiratory & sleep-care device item",
+      "type": "object",
+      "properties": {
+        "nameEn": { "type": "string", "maxLength": 200 },
+        "nameBn": { "type": "string", "maxLength": 200 },
+        "slug": { "type": "string", "maxLength": 200 },
+        "categoryId": { "type": "string", "maxLength": 50 },
+        "price": { "type": "number" },
+        "oldPrice": { "type": "number" },
+        "badge": { "type": "string", "maxLength": 50 },
+        "rating": { "type": "number" },
+        "reviewCount": { "type": "number" },
+        "images": { "type": "array" },
+        "features": { "type": "array" },
+        "shortDesc": { "type": "string", "maxLength": 1000 },
+        "longDesc": { "type": "string", "maxLength": 5000 },
+        "stock": { "type": "number" },
+        "isFeatured": { "type": "boolean" },
+        "visible": { "type": "boolean" },
+        "order": { "type": "number" }
+      },
+      "required": ["nameEn", "nameBn", "categoryId", "price", "visible"]
+    },
+    "MediaItem": {
+      "title": "MediaItem",
+      "description": "Uploaded image in media library",
+      "type": "object",
+      "properties": {
+        "url": { "type": "string", "maxLength": 1000 },
+        "storagePath": { "type": "string", "maxLength": 500 },
+        "fileName": { "type": "string", "maxLength": 200 },
+        "size": { "type": "number" },
+        "width": { "type": "number" },
+        "height": { "type": "number" },
+        "alt": { "type": "string", "maxLength": 300 }
+      },
+      "required": ["url", "fileName"]
+    },
+    "CustomerOrder": {
+      "title": "CustomerOrder",
+      "description": "Customer e-commerce order submitted from storefront or COD checkout",
+      "type": "object",
+      "properties": {
+        "customerName": { "type": "string", "maxLength": 150 },
+        "customerPhone": { "type": "string", "maxLength": 50 },
+        "customerAddress": { "type": "string", "maxLength": 500 },
+        "zone": { "type": "string", "enum": ["sylhet", "outside"] },
+        "items": { "type": "array" },
+        "subtotal": { "type": "number" },
+        "deliveryCharge": { "type": "number" },
+        "total": { "type": "number" },
+        "channel": { "type": "string", "enum": ["cod", "whatsapp"] },
+        "status": { "type": "string", "enum": ["new", "confirmed", "shipped", "delivered", "cancelled"] },
+        "notes": { "type": "string", "maxLength": 1000 }
+      },
+      "required": ["customerName", "customerPhone", "customerAddress", "zone", "items", "total", "status"]
+    },
+    "CustomerInquiry": {
+      "title": "CustomerInquiry",
+      "description": "Inquiry form submission from the public website",
+      "type": "object",
+      "properties": {
+        "customerName": { "type": "string", "maxLength": 150 },
+        "customerPhone": { "type": "string", "maxLength": 50 },
+        "productInterest": { "type": "string", "maxLength": 200 },
+        "message": { "type": "string", "maxLength": 1000 },
+        "status": { "type": "string", "enum": ["new", "contacted", "closed"] }
+      },
+      "required": ["customerName", "customerPhone", "status"]
+    },
+    "AdminUser": {
+      "title": "AdminUser",
+      "description": "Authorized administrator account with access control role",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string", "maxLength": 150 },
+        "role": { "type": "string", "enum": ["owner", "editor"] }
+      },
+      "required": ["email", "role"]
+    }
+  },
+  "firestore": {
+    "/settings/site": {
+      "schema": "SiteSettings",
+      "description": "Site-wide configuration and contact credentials"
+    },
+    "/sections/{sectionId}": {
+      "schema": "PageSection",
+      "description": "Configurable storefront sections"
+    },
+    "/categories/{categoryId}": {
+      "schema": "Category",
+      "description": "Product categories"
+    },
+    "/products/{productId}": {
+      "schema": "Product",
+      "description": "Product catalog"
+    },
+    "/media/{mediaId}": {
+      "schema": "MediaItem",
+      "description": "Media library assets"
+    },
+    "/orders/{orderId}": {
+      "schema": "CustomerOrder",
+      "description": "Customer purchase orders"
+    },
+    "/inquiries/{inquiryId}": {
+      "schema": "CustomerInquiry",
+      "description": "Lead and product inquiries"
+    },
+    "/admins/{uid}": {
+      "schema": "AdminUser",
+      "description": "Authorized administrators"
+    }
+  }
+}
